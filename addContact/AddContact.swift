@@ -36,11 +36,19 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         addContactButton.layer.cornerRadius = 4
         
         firstName.delegate = self
+        lastName.delegate = self
+        companyName.delegate = self
+        phoneNumber.delegate = self
+        emailAddress.delegate = self
+        
         if firstName.text!.isEmpty{
             addContactButton.isUserInteractionEnabled = false
             addContactButton.alpha = 0.50
         }
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -52,6 +60,15 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
             addContactButton.isUserInteractionEnabled = false
             addContactButton.alpha = 0.50
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,34 +107,39 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         
         
         let alertController = UIAlertController(title: firstName.text! + " " + lastName.text! + " added!", message: "Would you like to send them a text?", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler:{ _ in self.afterTextMessage()}))
         alertController.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.default,handler:{ _ in self.sendTextMessage()}))
-        
-        
-        firstName.text = ""
-        lastName.text = ""
-        companyName.text = ""
-        phoneNumber.text = ""
-        emailAddress.text = ""
-        
         self.present(alertController, animated: true, completion: nil)
         
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController,
                                       didFinishWith result: MessageComposeResult){
+        controller.dismiss(animated: true, completion:nil)
         
+    }
+    
+    func afterTextMessage() {
+        firstName.text = ""
+        lastName.text = ""
+        companyName.text = ""
+        phoneNumber.text = ""
+        emailAddress.text = ""
     }
     
     func sendTextMessage(){
         let loc = manager.location
         let controller = MFMessageComposeViewController()
         if MFMessageComposeViewController.canSendText() {
-            controller.body = "Hey it's " + UIDevice.current.name + "! \n We met at \(loc) \n with Contac+ elizabethkukla.com"
+            controller.body = "Hey it's " + UIDevice.current.name + "! \n We met at \(loc) \n\n with Contac+ elizabethkukla.com"
             controller.recipients = [phoneNumber.text!]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         }
+        else {
+            print("SMS services are not availible")
+        }
+        self.afterTextMessage()
         
     }
 
