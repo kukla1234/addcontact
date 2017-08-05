@@ -38,8 +38,20 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         firstName.delegate = self
         if firstName.text!.isEmpty{
             addContactButton.isUserInteractionEnabled = false
+            addContactButton.alpha = 0.50
         }
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if firstName.text! != "" {
+            addContactButton.isUserInteractionEnabled = true
+            addContactButton.alpha = 1
+        }
+        else {
+            addContactButton.isUserInteractionEnabled = false
+            addContactButton.alpha = 0.50
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +81,7 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
             value:CNPhoneNumber(stringValue:phoneNumber.text!))]
         contact.emailAddresses = [CNLabeledValue(
             label:CNLabelHome,
-            value: phoneNumber.text! as NSString)]
+            value: emailAddress.text! as NSString)]
 
         let store = CNContactStore()
         let saveRequest = CNSaveRequest()
