@@ -14,32 +14,39 @@ import MessageUI
 
 class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITextFieldDelegate {
     
+    var PfirstName = ""
+    var PlastName = ""
+    var PcompanyName = ""
+    var PphoneNumber = ""
+    var PemailAddress = ""
     
     @IBOutlet weak var firstName: UITextField!
-    
     @IBOutlet weak var lastName: UITextField!
-    
     @IBOutlet weak var companyName: UITextField!
-    
     @IBOutlet weak var phoneNumber: UITextField!
-    
     @IBOutlet weak var emailAddress: UITextField!
-    
+    @IBOutlet weak var locationName: UITextField!
     @IBOutlet weak var addLocationButton: UIButton!
-    
     @IBOutlet weak var addContactButton: UIButton!
     
     let manager = CLLocationManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addContactButton.layer.cornerRadius = 4
         
-        firstName.delegate = self
-        lastName.delegate = self
-        companyName.delegate = self
-        phoneNumber.delegate = self
+        firstName.delegate    = self
+        lastName.delegate     = self
+        companyName.delegate  = self
+        phoneNumber.delegate  = self
         emailAddress.delegate = self
+        locationName.delegate = self
+        
+        firstName.text    = PfirstName
+        lastName.text     = PlastName
+        companyName.text  = PcompanyName
+        phoneNumber.text  = PphoneNumber
+        emailAddress.text = PemailAddress
         
         if firstName.text!.isEmpty{
             addContactButton.isUserInteractionEnabled = false
@@ -70,7 +77,20 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
     func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
+        if (segue.identifier == "AddContactToSelectLocation") {
+            let vc = segue.destination as! ExploreViewController
+            vc.phoneNumber  = phoneNumber.text!
+            vc.firstName    = firstName.text!
+            vc.lastName     = lastName.text!
+            vc.companyName  = companyName.text!
+            vc.emailAddress = emailAddress.text!
+        }
+        */
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,7 +99,7 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
     @IBAction func currentLocation(_ sender: UIButton){
         let loc = manager.location
         let alertController = UIAlertController(title: "Current Location", message:
-            "Your location is: \n \(loc)", preferredStyle: UIAlertControllerStyle.alert)
+            "Your location is: \n \(loc!)", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true,
@@ -89,17 +109,26 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
     @IBAction func saveContact(_ sender: UIButton) {
         let contact = CNMutableContact()
         let loc = manager.location
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: loc!.timestamp)
         
         contact.givenName = firstName.text!
         contact.familyName = lastName.text!
-        contact.note = "You added this contact at: \n \(loc)"
+        if(locationName.text! != ""){
+            contact.note = "You met \(firstName.text!) on \n \(dateString) at \(locationName.text!)"
+        }
+        else {
+            contact.note = "You met \(firstName.text!) on \n \(dateString)"
+        }
         contact.phoneNumbers = [CNLabeledValue(
             label:CNLabelPhoneNumberMain,
             value:CNPhoneNumber(stringValue:phoneNumber.text!))]
         contact.emailAddresses = [CNLabeledValue(
             label:CNLabelHome,
             value: emailAddress.text! as NSString)]
-
+        
         let store = CNContactStore()
         let saveRequest = CNSaveRequest()
         saveRequest.add(contact, toContainerWithIdentifier:nil)
@@ -107,8 +136,8 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         
         
         let alertController = UIAlertController(title: firstName.text! + " " + lastName.text! + " added!", message: "Would you like to send them a text?", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler:{ _ in self.afterTextMessage()}))
-        alertController.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.default,handler:{ _ in self.sendTextMessage()}))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default,handler:{ _ in self.afterTextMessage()}))
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler:{ _ in self.sendTextMessage()}))
         self.present(alertController, animated: true, completion: nil)
         
     }
@@ -125,13 +154,17 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         companyName.text = ""
         phoneNumber.text = ""
         emailAddress.text = ""
+        locationName.text = ""
+        
+        addContactButton.isUserInteractionEnabled = false
+        addContactButton.alpha = 0.50
     }
     
     func sendTextMessage(){
         let loc = manager.location
         let controller = MFMessageComposeViewController()
         if MFMessageComposeViewController.canSendText() {
-            controller.body = "Hey it's " + UIDevice.current.name + "! \n We met at \(loc) \n\n with Contac+ elizabethkukla.com"
+            controller.body = "Hey it's " + UIDevice.current.name + "! \n We met at \(locationName.text!) \n\n with Contac+ elizabethkukla.com"
             controller.recipients = [phoneNumber.text!]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
@@ -142,7 +175,7 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         self.afterTextMessage()
         
     }
-
-
+    
+    
 }
 

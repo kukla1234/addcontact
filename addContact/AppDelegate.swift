@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import QuadratTouch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let client = Client(clientID:       "RVM0YOJMI5XBFZBFXQYMMGD2C0253ZOHEECVTHUIHDXSS5CI",
+                            clientSecret:   "4K33DCE45L1MSY3KX2WNUMM0WESWV2CRUIADROFYSU4B1UQS",
+                            redirectURL:    "testapp123://foursquare")
+        var configuration = Configuration(client:client)
+        Session.setupSharedSessionWithConfiguration(configuration)
         // Override point for customization after application launch.
         return true
     }

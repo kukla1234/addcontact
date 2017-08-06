@@ -15,7 +15,7 @@
 		F149858B1F361C46001DE452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14985891F361C46001DE452 /* LaunchScreen.storyboard */; };
 		F14985961F361C46001DE452 /* addContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14985951F361C46001DE452 /* addContactTests.swift */; };
 		F14985A11F361C46001DE452 /* addContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14985A01F361C46001DE452 /* addContactUITests.swift */; };
-		F1B916151F36433400ECED56 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B916141F36433400ECED56 /* SelectLocationViewController.swift */; };
+		F1DB49241F36AC1C00125C39 /* QuadratTouch.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F1BC3B821F36AA350012A6CB /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,42 @@
 			remoteGlobalIDString = F14985791F361C46001DE452;
 			remoteInfo = addContact;
 		};
+		F1BC3B7F1F36AA350012A6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 476B70891A0EBAE700AFAC33;
+			remoteInfo = Quadrat;
+		};
+		F1BC3B811F36AA350012A6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 476B70DA1A0EBBA500AFAC33;
+			remoteInfo = QuadratTouch;
+		};
+		F1DB49221F36AB4800125C39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 476B70D91A0EBBA500AFAC33;
+			remoteInfo = QuadratTouch;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1DB49201F36AB0500125C39 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F1DB49241F36AC1C00125C39 /* QuadratTouch.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F149857A1F361C46001DE452 /* addContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = addContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +85,7 @@
 		F149859C1F361C46001DE452 /* addContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = addContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14985A01F361C46001DE452 /* addContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addContactUITests.swift; sourceTree = "<group>"; };
 		F14985A21F361C46001DE452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1B916141F36433400ECED56 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectLocationViewController.swift; path = ../SelectLocationViewController.swift; sourceTree = "<group>"; };
+		F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "Submodules/das-quadrat/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +116,7 @@
 		F14985711F361C46001DE452 = {
 			isa = PBXGroup;
 			children = (
+				F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */,
 				F149857C1F361C46001DE452 /* addContact */,
 				F14985941F361C46001DE452 /* addContactTests */,
 				F149859F1F361C46001DE452 /* addContactUITests */,
@@ -101,7 +137,6 @@
 		F149857C1F361C46001DE452 /* addContact */ = {
 			isa = PBXGroup;
 			children = (
-				F1B916141F36433400ECED56 /* SelectLocationViewController.swift */,
 				F149857D1F361C46001DE452 /* AppDelegate.swift */,
 				F149857F1F361C46001DE452 /* AddContact.swift */,
 				F14985811F361C46001DE452 /* Main.storyboard */,
@@ -131,6 +166,15 @@
 			path = addContactUITests;
 			sourceTree = "<group>";
 		};
+		F1BC3B7B1F36AA350012A6CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC3B801F36AA350012A6CB /* Quadrat.framework */,
+				F1BC3B821F36AA350012A6CB /* QuadratTouch.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,10 +185,12 @@
 				F14985761F361C46001DE452 /* Sources */,
 				F14985771F361C46001DE452 /* Frameworks */,
 				F14985781F361C46001DE452 /* Resources */,
+				F1DB49201F36AB0500125C39 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F1DB49231F36AB4800125C39 /* PBXTargetDependency */,
 			);
 			name = addContact;
 			productName = addContact;
@@ -227,6 +273,12 @@
 			mainGroup = F14985711F361C46001DE452;
 			productRefGroup = F149857B1F361C46001DE452 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F1BC3B7B1F36AA350012A6CB /* Products */;
+					ProjectRef = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F14985791F361C46001DE452 /* addContact */,
@@ -235,6 +287,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F1BC3B801F36AA350012A6CB /* Quadrat.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quadrat.framework;
+			remoteRef = F1BC3B7F1F36AA350012A6CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1BC3B821F36AA350012A6CB /* QuadratTouch.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = QuadratTouch.framework;
+			remoteRef = F1BC3B811F36AA350012A6CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F14985781F361C46001DE452 /* Resources */ = {
@@ -269,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14985801F361C46001DE452 /* AddContact.swift in Sources */,
-				F1B916151F36433400ECED56 /* SelectLocationViewController.swift in Sources */,
 				F14985861F361C46001DE452 /* addContact.xcdatamodeld in Sources */,
 				F149857E1F361C46001DE452 /* AppDelegate.swift in Sources */,
 			);
@@ -303,6 +371,11 @@
 			isa = PBXTargetDependency;
 			target = F14985791F361C46001DE452 /* addContact */;
 			targetProxy = F149859D1F361C46001DE452 /* PBXContainerItemProxy */;
+		};
+		F1DB49231F36AB4800125C39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QuadratTouch;
+			targetProxy = F1DB49221F36AB4800125C39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -423,6 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B3349R3MB7;
 				INFOPLIST_FILE = addContact/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ekukla.addContact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,6 +510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B3349R3MB7;
 				INFOPLIST_FILE = addContact/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ekukla.addContact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
