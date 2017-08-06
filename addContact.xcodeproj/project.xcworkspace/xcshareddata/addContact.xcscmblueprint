@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "14AB32248C1D0DC7FF41A84F549BA62C75AB2599",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "14AB32248C1D0DC7FF41A84F549BA62C75AB2599" : 9223372036854775807,
+    "C333CCA42B76DAB308C436958D3D72C5B6ACE147" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "27271B60-2070-4658-A197-2509FD82198B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "14AB32248C1D0DC7FF41A84F549BA62C75AB2599" : "addContactGit\/",
+    "C333CCA42B76DAB308C436958D3D72C5B6ACE147" : "addContactGit\/Submodules\/das-quadrat\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "addContact",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "addContact.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:kukla1234\/addcontact.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "14AB32248C1D0DC7FF41A84F549BA62C75AB2599"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Constantine-Fry\/das-quadrat.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C333CCA42B76DAB308C436958D3D72C5B6ACE147"
+    }
+  ]
+}

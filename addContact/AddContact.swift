@@ -35,6 +35,8 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         super.viewDidLoad()
         addContactButton.layer.cornerRadius = 4
         
+      
+        
         firstName.delegate    = self
         lastName.delegate     = self
         companyName.delegate  = self
@@ -135,7 +137,7 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         try! store.execute(saveRequest)
         
         
-        let alertController = UIAlertController(title: firstName.text! + " " + lastName.text! + " added!", message: "Would you like to send them a text?", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: firstName.text! + " " + lastName.text! + " added!", message: "Would you like to send them your number?", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default,handler:{ _ in self.afterTextMessage()}))
         alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler:{ _ in self.sendTextMessage()}))
         self.present(alertController, animated: true, completion: nil)
@@ -164,7 +166,7 @@ class AddContact: UIViewController, MFMessageComposeViewControllerDelegate, UITe
         let loc = manager.location
         let controller = MFMessageComposeViewController()
         if MFMessageComposeViewController.canSendText() {
-            controller.body = "Hey it's " + UIDevice.current.name + "! \n We met at \(locationName.text!) \n\n with Contac+ elizabethkukla.com"
+            controller.body = "Hey it's " + UIDevice.current.name + "! \nWe met at \(locationName.text!) \n\n Added with Contac+ elizabethkukla.com"
             controller.recipients = [phoneNumber.text!]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
