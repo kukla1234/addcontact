@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import QuadratTouch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

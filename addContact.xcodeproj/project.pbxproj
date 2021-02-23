@@ -15,7 +15,6 @@
 		F149858B1F361C46001DE452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14985891F361C46001DE452 /* LaunchScreen.storyboard */; };
 		F14985961F361C46001DE452 /* addContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14985951F361C46001DE452 /* addContactTests.swift */; };
 		F14985A11F361C46001DE452 /* addContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14985A01F361C46001DE452 /* addContactUITests.swift */; };
-		F1DB49241F36AC1C00125C39 /* QuadratTouch.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F1BC3B821F36AA350012A6CB /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1F562CA1F37B63800E9BED7 /* contact start screen.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F562C91F37B63800E9BED7 /* contact start screen.png */; };
 		F1F562CD1F37B84400E9BED7 /* Contac+.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F562CC1F37B84400E9BED7 /* Contac+.png */; };
 /* End PBXBuildFile section */
@@ -35,27 +34,6 @@
 			remoteGlobalIDString = F14985791F361C46001DE452;
 			remoteInfo = addContact;
 		};
-		F1BC3B7F1F36AA350012A6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 476B70891A0EBAE700AFAC33;
-			remoteInfo = Quadrat;
-		};
-		F1BC3B811F36AA350012A6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 476B70DA1A0EBBA500AFAC33;
-			remoteInfo = QuadratTouch;
-		};
-		F1DB49221F36AB4800125C39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 476B70D91A0EBBA500AFAC33;
-			remoteInfo = QuadratTouch;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,7 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F1DB49241F36AC1C00125C39 /* QuadratTouch.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +64,6 @@
 		F149859C1F361C46001DE452 /* addContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = addContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14985A01F361C46001DE452 /* addContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addContactUITests.swift; sourceTree = "<group>"; };
 		F14985A21F361C46001DE452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "Submodules/das-quadrat/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
 		F1F562C91F37B63800E9BED7 /* contact start screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contact start screen.png"; sourceTree = "<group>"; };
 		F1F562CC1F37B84400E9BED7 /* Contac+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contac+.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +96,6 @@
 		F14985711F361C46001DE452 = {
 			isa = PBXGroup;
 			children = (
-				F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */,
 				F149857C1F361C46001DE452 /* addContact */,
 				F14985941F361C46001DE452 /* addContactTests */,
 				F149859F1F361C46001DE452 /* addContactUITests */,
@@ -172,15 +147,6 @@
 			path = addContactUITests;
 			sourceTree = "<group>";
 		};
-		F1BC3B7B1F36AA350012A6CB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F1BC3B801F36AA350012A6CB /* Quadrat.framework */,
-				F1BC3B821F36AA350012A6CB /* QuadratTouch.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,7 +162,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F1DB49231F36AB4800125C39 /* PBXTargetDependency */,
 			);
 			name = addContact;
 			productName = addContact;
@@ -279,12 +244,6 @@
 			mainGroup = F14985711F361C46001DE452;
 			productRefGroup = F149857B1F361C46001DE452 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F1BC3B7B1F36AA350012A6CB /* Products */;
-					ProjectRef = F1BC3B7A1F36AA350012A6CB /* Quadrat.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				F14985791F361C46001DE452 /* addContact */,
@@ -293,23 +252,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		F1BC3B801F36AA350012A6CB /* Quadrat.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Quadrat.framework;
-			remoteRef = F1BC3B7F1F36AA350012A6CB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F1BC3B821F36AA350012A6CB /* QuadratTouch.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = QuadratTouch.framework;
-			remoteRef = F1BC3B811F36AA350012A6CB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F14985781F361C46001DE452 /* Resources */ = {
@@ -379,11 +321,6 @@
 			isa = PBXTargetDependency;
 			target = F14985791F361C46001DE452 /* addContact */;
 			targetProxy = F149859D1F361C46001DE452 /* PBXContainerItemProxy */;
-		};
-		F1DB49231F36AB4800125C39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = QuadratTouch;
-			targetProxy = F1DB49221F36AB4800125C39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,7 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B3349R3MB7;
 				INFOPLIST_FILE = addContact/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ekukla.addContact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B3349R3MB7;
 				INFOPLIST_FILE = addContact/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ekukla.addContact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
